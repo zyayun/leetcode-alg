@@ -45,3 +45,68 @@ func main() {
 		fmt.Printf("->%d \t", curr.Val)
 	}
 }
+
+// // v2 增加一些辅助方法
+// type ListNode struct {
+// 	Val  int
+// 	Next *ListNode
+// }
+
+// func Reverse(head *ListNode) *ListNode {
+// 	if head == nil {
+// 		return nil
+// 	}
+
+// 	var prev *ListNode = nil
+// 	curr := head
+// 	for curr != nil {
+// 		next := curr.Next
+// 		curr.Next = prev
+// 		prev = curr
+// 		curr = next
+// 	}
+
+// 	return prev
+// }
+
+// func Insert(head *ListNode, val int) {
+// 	if head == nil {
+// 		return
+// 	}
+// 	newNode := &ListNode{Val: val}
+
+// 	curr := head
+// 	for curr.Next != nil {
+// 		curr = curr.Next
+// 	}
+// 	curr.Next = newNode
+// }
+
+// func PrintListNode(head *ListNode) {
+// 	if head == nil {
+// 		return
+// 	}
+
+// 	curr := head
+
+// 	for curr != nil {
+// 		fmt.Printf("-> %d\t", curr.Val)
+// 		curr = curr.Next
+// 	}
+// 	fmt.Println()
+// }
+
+// func main() {
+
+// 	root := &ListNode{Val: 1}
+// 	Insert(root, 2)
+// 	Insert(root, 3)
+// 	Insert(root, 4)
+// 	Insert(root, 5)
+
+// 	PrintListNode(root)
+
+// 	result := Reverse(root)
+// 	PrintListNode(result)
+
+// }

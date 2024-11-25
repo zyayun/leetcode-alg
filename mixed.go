@@ -2,62 +2,39 @@ package main
 
 import "fmt"
 
-func RemoveDuplicateList(arr []int) []int {
-
-	newMap := make(map[int]bool)
-
-	result := []int{}
-
-	for _, value := range arr {
-		if _, ok := newMap[value]; !ok {
-			result = append(result, value)
-			newMap[value] = true
-		}
-	}
-
-	return result
+type ListNode struct {
+	Val  int
+	Next *ListNode
 }
 
-func BoubbleSort1(arr []int) []int {
+func ReverseList(head *ListNode) *ListNode {
+	var prev *ListNode = nil
+	curr := head
 
-	for i := 0; i < len(arr)-1; i++ {
-		for j := 0; j < len(arr)-i-1; j++ {
-			if arr[j] > arr[j+1] {
-				arr[j], arr[j+1] = arr[j+1], arr[j]
-			}
-		}
+	for curr != nil {
+		next := curr.Next
+		curr.Next = prev
+		prev = curr
+		curr.Next = next
 	}
 
-	return arr
-}
-
-func BinnarySearch(arr []int, target int) int {
-	low, hight := 0, len(arr)-1
-	for low <= hight {
-		mid := (low + hight) // 2
-		if arr[mid] == target {
-			return mid
-		}
-
-		if arr[mid] > target {
-			hight = mid - 1
-		} else {
-			low = mid + 1
-		}
-	}
-
-	return -1
+	return prev
 }
 func main() {
-	arr := []int{55, 11, 22, 22, 33, 44}
-	target := 11
+	root1 := &ListNode{Val: 1}
+	root2 := &ListNode{Val: 2}
+	root3 := &ListNode{Val: 3}
+	root4 := &ListNode{Val: 4}
+	root5 := &ListNode{Val: 5}
 
-	result := BinnarySearch(arr, target)
+	root1.Next = root2
+	root2.Next = root3
+	root3.Next = root4
+	root4.Next = root5
 
-	if result != -1 {
-		fmt.Println("Target found index is ", result)
-	} else {
-		fmt.Println("Target  not found")
+	result := ReverseList(root1)
+
+	for curr := result; curr != nil; curr = curr.Next {
+		fmt.Printf("->%d\t", curr.Val)
 	}
-
 }
