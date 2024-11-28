@@ -14,6 +14,7 @@ func NewTreeNode(val int) *TreeNode {
 	}
 
 }
+// 二叉树遍历 前序
 func PreOderTree(head *TreeNode) []int {
 	if head == nil {
 		return []int{}

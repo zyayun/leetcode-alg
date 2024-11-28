@@ -20,7 +20,10 @@ func twoSum(nums []int, target int) []int {
 	return nil
 }
 
+// Use HashMap
 func twoSumHashSearch(nums []int, target int) []int {
+	fmt.Println("Debug Origin nums", nums)
+	fmt.Println("Debug Origin target", target)
 	hashMap := map[int]int{}
 	for i, v := range nums {
 		if p, ok := hashMap[target-v]; ok {
@@ -28,7 +31,6 @@ func twoSumHashSearch(nums []int, target int) []int {
 			return []int{p, i}
 		}
 		hashMap[v] = 1
-		fmt.Println(hashMap)
 	}
 	return nil
 }
